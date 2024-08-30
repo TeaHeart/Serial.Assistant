@@ -6,8 +6,8 @@ using System.Text.RegularExpressions;
 
 internal class Program {
     private static void Main(string[] args) {
-        using var sp = new SerialPort(SerialPortHelper.PortNames.FirstOrDefault(""));
-        if (!SetProperties(sp, args) && sp.PortName.Length == 0) {
+        using var sp = new SerialPort();
+        if (!SetProperties(sp, args)) {
             ShowHelp();
             return;
         }
